@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<bean id="majorBean" class = "com.divij.di.Major"> </bean>
+<bean id = "divij" class = "com.divij.di.Student">
+    <!-- Constructor based DI -->
+    <constructor-arg name="roll" value = "1" type = "Integer"> </constructor-arg>
+    <!-- Setter based DI -->
+    <property name = "studentName" value = "Divij Gera"> </property>
+    <property name = "major" ref = "majorBean"> </property>
+</bean>
+
+<bean id = "sahil" class = "com.divij.di.Student">
+    <!-- Constructor based DI -->
+    <constructor-arg name="roll" value = "2"> </constructor-arg>
+    <!-- Setter based DI -->
+    <property name = "studentName" value = "Sahil Kumar"> </property>
+     <property name = "major">
+        <bean class = "com.divij.di.Major">
+            <constructor-arg name = "subject" value = "ECE"> </constructor-arg>
+        </bean>
+    </property>
+</bean>
+
+</beans>
