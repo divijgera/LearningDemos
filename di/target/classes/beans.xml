@@ -7,12 +7,15 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 <bean id="majorBean" class = "com.divij.di.Major"> </bean>
+<bean id="danceBean" class = "com.divij.di.Dance"> </bean>
+<bean id="theatreBean" class = "com.divij.di.Theatre"> </bean>
 <bean id = "divij" class = "com.divij.di.Student">
     <!-- Constructor based DI -->
     <constructor-arg name="roll" value = "1" type = "Integer"> </constructor-arg>
     <!-- Setter based DI -->
     <property name = "studentName" value = "Divij Gera"> </property>
     <property name = "major" ref = "majorBean"> </property>
+    <property name = "society" ref = "theatreBean" />
 </bean>
 
 <bean id = "sahil" class = "com.divij.di.Student">
@@ -25,6 +28,7 @@
             <constructor-arg name = "subject" value = "ECE"> </constructor-arg>
         </bean>
     </property>
+    <property name = "society" ref = "danceBean" />
 </bean>
 
 </beans>
